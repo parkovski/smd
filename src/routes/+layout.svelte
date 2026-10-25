@@ -24,6 +24,6 @@
 {@render children()}
 <footer class="footer sm:footer-horizontal footer-center bg-neutral text-neutral-content p-4">
   <aside>
-    <p>Copyright 2026 Shadow Mountain Digital</p>
+    <p>Copyright &copy; 2026 Shadow Mountain Digital</p>
   </aside>
 </footer>
