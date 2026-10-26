@@ -25,23 +25,23 @@
     <div class="navbar-center hidden md:flex">
       <ul class="menu menu-horizontal px-1 text-primary-content text-lg font-bold">
         <li><a class="link link-hover" href="/">Home</a></li>
-        <li><a class="link link-hover" href="/">Portfolio</a></li>
-        <li><a class="link link-hover" href="/">Calendar</a></li>
-        <li><a class="link link-hover" href="/">Contact</a></li>
+        <li><a class="link link-hover" href="/portfolio">Portfolio</a></li>
+        <li><a class="link link-hover" href="/calendar">Calendar</a></li>
+        <li><a class="link link-hover" href="/contact">Contact</a></li>
       </ul>
     </div>
     <div class="navbar-end">
       <ul class="menu menu-horizontal text-primary-content text-lg font-bold pr-0">
-        <li><a class="link link-hover" href="/">About</a></li>
+        <li><a class="link link-hover" href="/about">About</a></li>
       </ul>
     </div>
   </div>
   <div class="collapse-content md:hidden z-1">
     <ul class="menu text-primary-content text-lg font-bold">
       <li><a class="link link-hover" href="/">Home</a></li>
-      <li><a class="link link-hover" href="/">Portfolio</a></li>
-      <li><a class="link link-hover" href="/">Calendar</a></li>
-      <li><a class="link link-hover" href="/">Contact</a></li>
+      <li><a class="link link-hover" href="/portfolio">Portfolio</a></li>
+      <li><a class="link link-hover" href="/calendar">Calendar</a></li>
+      <li><a class="link link-hover" href="/contact">Contact</a></li>
     </ul>
   </div>
 </div>
