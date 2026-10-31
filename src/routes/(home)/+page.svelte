@@ -28,12 +28,12 @@
     </div>
   </div>
 </div>
-<div class="max-md:collapse bg-primary/30 text-black shadow-sm w-full rounded-xs absolute top-0">
+<div class="max-md:collapse bg-primary/30 text-black shadow-sm w-full rounded-xl border-b border-primary/50 absolute top-0">
   <input id="navbar-1-toggle" class="peer hidden" type="checkbox"/>
   <label for="navbar-1-toggle" class="fixed inset-0 hidden max-md:peer-checked:block"></label>
   <div class="collapse-title navbar py-0 cursor-default">
     <div class="navbar-start">
-      <label for="navbar-1-toggle" class="btn btn-ghost hover:bg-base-200/50 text-secondary-content border-0 md:hidden">
+      <label for="navbar-1-toggle" class="btn btn-ghost hover:bg-base-200/50 text-black border-0 md:hidden">
         <svg aria-label="Menu" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
       </label>
       <a class="pl-2" href="/"><img src={saguaro} style="height: 64px;" alt="Logo"></a>
@@ -52,7 +52,7 @@
       </ul>
     </div>
   </div>
-  <div class="collapse-content md:hidden z-1">
+  <div class="collapse-content bg-primary/75 md:hidden z-1 rounded-b-xl">
     <ul class="menu text-lg font-bold">
       <li><a class="link link-hover" href="/">Home</a></li>
       <li><a class="link link-hover" href="/portfolio">Portfolio</a></li>

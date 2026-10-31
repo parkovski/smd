@@ -12,7 +12,7 @@
   <link rel="icon" href={favicon} />
 </svelte:head>
 
-<div class="max-md:collapse bg-primary text-primary-content shadow-sm w-full rounded-xs">
+<div class="max-md:collapse bg-primary text-primary-content shadow-sm w-full rounded-xl">
   <input id="navbar-1-toggle" class="peer hidden" type="checkbox"/>
   <label for="navbar-1-toggle" class="fixed inset-0 hidden max-md:peer-checked:block"></label>
   <div class="collapse-title navbar py-0 cursor-default">
