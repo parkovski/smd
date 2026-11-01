@@ -11,6 +11,7 @@
    sodipodi:docname="saguaro-circle.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
@@ -24,7 +25,7 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="1.0242632"
-     inkscape:cx="216.25301"
+     inkscape:cx="216.74117"
      inkscape:cy="267.02121"
      inkscape:window-width="1920"
      inkscape:window-height="1094"
@@ -34,6 +35,22 @@
      inkscape:current-layer="layer2" />
   <defs
      id="defs1">
+    <linearGradient
+       id="linearGradient3"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0.84948456;"
+         offset="0"
+         id="stop3" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0.50103092;"
+         offset="0.9009434"
+         id="stop5" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0.67216498;"
+         offset="1"
+         id="stop4" />
+    </linearGradient>
     <clipPath
        clipPathUnits="userSpaceOnUse"
        id="clipPath7">
@@ -41,13 +58,23 @@
          d="M 344,-12 H 704 V 204 H 344 Z"
          id="path7" />
     </clipPath>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3"
+       id="radialGradient4"
+       cx="67.549568"
+       cy="67.678726"
+       fx="67.549568"
+       fy="67.678726"
+       r="67.73333"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <g
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Layer 2">
     <circle
-       style="opacity:1;fill:#ffffff;fill-opacity:0.32592592;stroke:none;stroke-width:1.5875"
+       style="opacity:1;fill:url(#radialGradient4);fill-opacity:0.32592595;stroke:none;stroke-width:1.5875"
        id="path1"
        cx="67.549568"
        cy="67.678726"
