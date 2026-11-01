@@ -10,7 +10,7 @@
   </p>
   <p>
     As a programmer, Parker specializes in server-side work, though he is also
-    capable of developing frontend-only websites. Parker is an expert in
+    capable of developing frontend-focused websites. Parker is an expert in
     JavaScript, C++, and C#, and is familiar with many different frameworks
     spanning all kinds of different technological needs, and will work with you
     to find the best fit for the job.
