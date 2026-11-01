@@ -3,7 +3,7 @@
 </script>
 
 <div class="max-w-3xl m-auto my-2 px-2">
-  <img class="float-left mr-2" style="height: 150px; width: auto" src={bigChair} alt="Parker"/>
+  <img class="float-left rounded-md mr-2" style="height: 150px; width: auto" src={bigChair} alt="Parker"/>
   <p class="my-2">
     Parker Snell started programming and creating websites at the age of 12. He
     has extensive experience in solving technological problems. He has worked at

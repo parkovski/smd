@@ -3,7 +3,7 @@
 </script>
 
 <div class="max-w-xl m-auto my-2 px-2">
-  <img class="float-left mr-2 mb-2" style="height: 100px; width: auto" src={headshot} alt="Parker"/>
+  <img class="float-left rounded-md mr-2 mb-2" style="height: 100px; width: auto" src={headshot} alt="Parker"/>
   <p class="my-2">
     Hi, I'd love to get in touch! You can contact me by
     <a class="link" href="/appointments">booking an appointment</a>
