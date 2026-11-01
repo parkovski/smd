@@ -8,6 +8,6 @@
     Hi, I'd love to get in touch! You can contact me by
     <a class="link" href="/appointments">booking an appointment</a>
     or sending me an email at
-    <a class="link" href="mailto:parker@shadowmtndigital.com">parker@shadowmtndigital.com</a>.
+    <a class="link" href="mailto:info@shadowmtndigital.com">info@shadowmtndigital.com</a>.
   </p>
 </div>
