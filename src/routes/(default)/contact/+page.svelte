@@ -2,6 +2,10 @@
   import headshot from '#lib/assets/me-at-a-mountain.webp';
 </script>
 
+<svelte:head>
+  <title>Contact - Shadow Mountain Digital</title>
+</svelte:head>
+
 <div class="max-w-xl m-auto my-2 px-2">
   <img class="float-left rounded-md mr-2 mb-2" style="height: 100px; width: auto" src={headshot} alt="Parker"/>
   <p class="my-2">

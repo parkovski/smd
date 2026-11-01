@@ -6,8 +6,8 @@
 
 <svelte:head>
   <link rel="icon" href={favicon}/>
+  <title>Shadow Mountain Digital</title>
 </svelte:head>
-
 
 <style>
   #logo {

@@ -2,6 +2,10 @@
   import bigChair from '#lib/assets/big-chair.webp';
 </script>
 
+<svelte:head>
+  <title>About - Shadow Mountain Digital</title>
+</svelte:head>
+
 <div class="max-w-3xl m-auto my-2 px-2">
   <img class="float-left rounded-md mr-2" style="height: 150px; width: auto" src={bigChair} alt="Parker"/>
   <p class="my-2">
