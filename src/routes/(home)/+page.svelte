@@ -67,7 +67,7 @@
     <ul class="menu text-lg font-bold">
       <li><a class="link link-hover" href="/">Home</a></li>
       <li><a class="link link-hover" href="/portfolio">Portfolio</a></li>
-      <li><a class="link link-hover" href="/calendar">Calendar</a></li>
+      <li><a class="link link-hover" href="/appointments">Appointments</a></li>
       <li><a class="link link-hover" href="/contact">Contact</a></li>
     </ul>
   </div>
