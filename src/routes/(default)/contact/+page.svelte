@@ -2,18 +2,10 @@
   import headshot from '#lib/assets/me-at-a-mountain.webp';
 </script>
 
-<svelte:head>
-  <title>Contact - Shadow Mountain Digital</title>
-</svelte:head>
-
-<div class="max-w-xl m-auto my-2 px-2">
-  <h1 class="text-3xl">Contact</h1>
-  <hr class="h-px mt-2 mb-4"/>
-  <img class="float-left rounded-md mr-2 mb-2" style="height: 100px; width: auto" src={headshot} alt="Parker"/>
-  <p class="my-2">
-    Hi, I'd love to get in touch! You can contact me by
-    <a class="link" href="/appointments">booking an appointment</a>
-    or sending me an email at
-    <a class="link" href="mailto:info@shadowmtndigital.com">info@shadowmtndigital.com</a>.
-  </p>
-</div>
+<img class="float-left rounded-md mr-2 mb-2" style="height: 100px; width: auto" src={headshot} alt="Parker"/>
+<p class="my-2">
+  Hi, I'd love to get in touch! You can contact me by
+  <a class="link" href="/appointments">booking an appointment</a>
+  or sending me an email at
+  <a class="link" href="mailto:info@shadowmtndigital.com">info@shadowmtndigital.com</a>.
+</p>

@@ -3,6 +3,7 @@
   import favicon from '#lib/assets/favicon.svg';
   import type { LayoutProps } from './$types';
   import { dev } from '$app/env';
+  import { page } from '$app/state';
 
   let { children }: LayoutProps = $props();
 </script>
@@ -22,6 +23,7 @@
 
 <svelte:head>
   <link rel="icon" href={favicon} />
+  <title>{ page.data.title } - Shadow Mountain Digital</title>
 </svelte:head>
 
 <div class="max-md:collapse bg-primary text-primary-content shadow-sm w-full rounded-xl">
@@ -57,7 +59,11 @@
     </ul>
   </div>
 </div>
-{@render children()}
+<div class="{page.data.width ?? 'max-w-3xl'} m-auto my-2 px-2">
+  <h1 class="text-3xl">{page.data.title}</h1>
+  <hr class="h-px mt-2 mb-4"/>
+  {@render children()}
+</div>
 <footer class="footer sm:footer-horizontal footer-center bg-neutral text-neutral-content p-4">
   <aside>
     <p>Copyright &copy; 2026 Shadow Mountain Digital</p>
