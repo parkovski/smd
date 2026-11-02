@@ -7,6 +7,8 @@
 </svelte:head>
 
 <div class="max-w-3xl m-auto my-2 px-2">
+  <h1 class="text-3xl">About</h1>
+  <hr class="h-px mt-2 mb-4"/>
   <img class="float-left rounded-md mr-2" style="height: 150px; width: auto" src={bigChair} alt="Parker"/>
   <p class="my-2">
     Parker Snell started programming and creating websites at the age of 12. He
