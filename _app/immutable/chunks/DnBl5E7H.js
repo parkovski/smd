@@ -1,0 +1,1 @@
+var e=new URL(`../assets/favicon.Chc8apGQ.svg`,import.meta.url).href;export{e as t};

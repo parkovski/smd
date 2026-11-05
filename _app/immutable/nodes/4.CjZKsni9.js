@@ -1,0 +1,1 @@
+import{t as e}from"../chunks/DK3Fl9T5.js";import"../chunks/-FUQLXsO.js";var t=e({load:()=>n}),n=()=>({title:`Appointments`});function r(e){}export{r as component,t as universal};
