@@ -8,9 +8,9 @@ importers:
 
   .:
     dependencies:
-      embla-carousel-svelte:
-        specifier: 9.0.0-rc04
-        version: 9.0.0-rc04(svelte@5.57.3)
+      embla-carousel:
+        specifier: ^9.0.0-rc04
+        version: 9.0.0-rc04
     devDependencies:
       '@sveltejs/adapter-static':
         specifier: ^4.0.1
@@ -402,16 +402,6 @@ packages:
 
   email-addresses@5.0.0:
     resolution: {integrity: sha512-4OIPYlA6JXqtVn8zpHpGiI7vE6EQOAg16aGnDMIAlZVinnoZ8208tW1hAbjWydgN/4PLTT9q+O1K6AH/vALJGw==}
-
-  embla-carousel-reactive-utils@9.0.0-rc04:
-    resolution: {integrity: sha512-38m/mPUs/VAqANCRlMzqz9mAY+vm4tOWHmqOu2cegO+Otm4PMZlt/yuZua8CH3z0kNFLS23hAkq7WAXNkYC1pA==}
-    peerDependencies:
-      embla-carousel: 9.0.0-rc04
-
-  embla-carousel-svelte@9.0.0-rc04:
-    resolution: {integrity: sha512-ztbZgBPnCECIAWD1kjWgUO7cc2C2/J92v2p3AY1WbvYklCbrAs7IpYMTPKbne4T6w1J/+F6v9jn0mMZr8WTOvg==}
-    peerDependencies:
-      svelte: ^3.49.0 || ^4.0.0 || ^5.0.0
 
   embla-carousel@9.0.0-rc04:
     resolution: {integrity: sha512-17JjAySlf/Sj0AawBmusMjap+SgGa+Yw0HpNCSnNs2v3Mj/wXNUdzpBAGv9uBizyYR/QcxG+pjXbHHg7xoE/iA==}
@@ -1095,16 +1085,6 @@ snapshots:
       path-type: 4.0.0
 
   email-addresses@5.0.0: {}
-
-  embla-carousel-reactive-utils@9.0.0-rc04(embla-carousel@9.0.0-rc04):
-    dependencies:
-      embla-carousel: 9.0.0-rc04
-
-  embla-carousel-svelte@9.0.0-rc04(svelte@5.57.3):
-    dependencies:
-      embla-carousel: 9.0.0-rc04
-      embla-carousel-reactive-utils: 9.0.0-rc04(embla-carousel@9.0.0-rc04)
-      svelte: 5.57.3
 
   embla-carousel@9.0.0-rc04: {}
 

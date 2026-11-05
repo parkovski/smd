@@ -27,11 +27,11 @@
     "typescript": "^6.0.3",
     "vite": "^8.3.5"
   },
+  "dependencies": {
+    "embla-carousel": "^9.0.0-rc04"
+  },
   "imports": {
     "#lib": "./src/lib/index.js",
     "#lib/*": "./src/lib/*"
-  },
-  "dependencies": {
-    "embla-carousel-svelte": "9.0.0-rc04"
   }
 }

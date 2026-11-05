@@ -1,16 +1,16 @@
 <script lang="ts">
-  import useEmblaCarousel from 'embla-carousel-svelte';
+  import { onMount } from 'svelte';
+  import EmblaCarousel, { type EmblaCarouselType } from 'embla-carousel';
   import tusongLight from '#lib/assets/tusong-light.webp';
   import tusongDark from '#lib/assets/tusong-dark.webp';
   import unaccessible from '#lib/assets/unaccessible.webp';
   import parkovskiLight from '#lib/assets/parkovski-light.webp';
   import parkovskiDark from '#lib/assets/parkovski-dark.webp';
 
-  let emblaApi: any;
-  let options = { loop: false };
-  function onInit(event:any) {
-    emblaApi = event.detail;
-  }
+  let emblaApi: EmblaCarouselType;
+  onMount(() => {
+    emblaApi = EmblaCarousel(document.querySelector('.embla__viewport')!);
+  });
 </script>
 
 <style>
@@ -33,7 +33,7 @@
     grid-template-columns: auto 1fr;
     justify-content: space-between;
     gap: 1.2rem;
-    margin-top: 0;
+    margin-top: 0.5rem;
   }
 
   .embla__buttons {
@@ -44,8 +44,6 @@
   }
 
   .embla__button {
-    -webkit-tap-highlight-color: rgba(var(--text-high-contrast-rgb-value), 0.5);
-    -webkit-appearance: none;
     appearance: none;
     background-color: transparent;
     touch-action: manipulation;
@@ -55,13 +53,12 @@
     border: 0;
     padding: 0;
     margin: 0;
-    border: 0.2rem solid var(--detail-medium-contrast);
-    width: 3.6rem;
-    height: 3.6rem;
-
+    border: 0.2rem solid var(--color-base-300);
+    width: 3rem;
+    height: 3rem;
     z-index: 1;
     border-radius: 50%;
-    color: var(--text-body);
+    color: var(--color-base-content);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,23 +73,26 @@
 
 <div class="embla">
   <!-- svelte-ignore event_directive_deprecated -->
-  <div class="embla__viewport" on:emblainit={onInit} use:useEmblaCarousel={{ options }}>
+  <div class="embla__viewport">
     <div class="embla__container">
       <div class="embla__slide">
         <picture>
           <source srcset={tusongLight} media="(prefers-color-scheme: light)"/>
           <source srcset={tusongDark} media="(prefers-color-scheme: dark)"/>
-          <img src={tusongLight} alt="Tusong Band Website" class="rounded-xl"/>
+          <img src={tusongLight} alt="Tusong Band Website"
+            class="rounded-xl border border-neutral"/>
         </picture>
       </div>
       <div class="embla__slide">
-        <img src={unaccessible} alt="Unaccessible Film Website" class="rounded-xl">
+        <img src={unaccessible} alt="Unaccessible Film Website"
+          class="rounded-xl border border-neutral">
       </div>
       <div class="embla__slide">
         <picture>
           <source srcset={parkovskiLight} media="(prefers-color-scheme: light)"/>
           <source srcset={parkovskiDark} media="(prefers-color-scheme: dark)"/>
-          <img src={parkovskiLight} alt="Parker's Personal Website" class="rounded-xl"/>
+          <img src={parkovskiLight} alt="Parker's Personal Website"
+            class="rounded-xl border border-neutral"/>
         </picture>
       </div>
     </div>
@@ -100,7 +100,8 @@
   <div class="embla__controls">
     <div class="embla__buttons">
       <!-- svelte-ignore event_directive_deprecated -->
-      <button class="embla__button embla__prev" aria-label="Previous" on:click={() => emblaApi?.goToPrev()}>
+      <button class="embla__button embla__prev" aria-label="Previous"
+        onclick={() => emblaApi?.goToPrev()}>
         <svg class="embla__button__svg" viewBox="0 0 532 532">
           <path
             fill="currentColor"
@@ -109,7 +110,8 @@
         </svg>
       </button>
       <!-- svelte-ignore event_directive_deprecated -->
-      <button class="embla__button embla__next" aria-label="Next" on:click={() => emblaApi?.goToNext()}>
+      <button class="embla__button embla__next" aria-label="Next"
+        onclick={() => emblaApi?.goToNext()}>
         <svg class="embla__button__svg" viewBox="0 0 532 532">
           <path
             fill="currentColor"
