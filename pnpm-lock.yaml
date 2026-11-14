@@ -11,6 +11,9 @@ importers:
       embla-carousel:
         specifier: ^9.0.0-rc04
         version: 9.0.0-rc04
+      vanilla-calendar-pro:
+        specifier: ^3.4.0
+        version: 3.4.0
     devDependencies:
       '@sveltejs/adapter-static':
         specifier: ^4.0.1
@@ -785,6 +788,9 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
+  vanilla-calendar-pro@3.4.0:
+    resolution: {integrity: sha512-HLWjzHOWvMIrjI77tXK5bYzp0s5TeBSrZC247STjcTAdWI7kqEwWT6Xvu20vqdwzF498H1Da8l4WpdgVIGtc1Q==}
+
   vfile-message@2.0.4:
     resolution: {integrity: sha512-DjssxRGkMvifUOJre00juHoP9DPWuzjxKuMDrhNbk2TdaYYBNMStsNhEOt3idrtI12VQYM/1+iM0KOzXi4pxwQ==}
 
@@ -1452,6 +1458,8 @@ snapshots:
   universalify@2.0.1: {}
 
   util-deprecate@1.0.2: {}
+
+  vanilla-calendar-pro@3.4.0: {}
 
   vfile-message@2.0.4:
     dependencies:
