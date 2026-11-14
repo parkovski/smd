@@ -1,6 +1,7 @@
 <script lang="ts">
   import '../layout.css';
   import favicon from '#lib/assets/favicon.svg';
+  import saguaroYellow from '#lib/assets/saguaro-circle-yellow.svg';
   import type { LayoutProps } from './$types';
   import { dev } from '$app/env';
   import { page } from '$app/state';
@@ -22,7 +23,8 @@
 </style>
 
 <svelte:head>
-  <link rel="icon" href={favicon} />
+  <link rel="icon" href={favicon}/>
+  <link rel="preload" href="{saguaroYellow}"/>
   <title>{ page.data.title } - Shadow Mountain Digital</title>
 </svelte:head>
 
@@ -61,7 +63,7 @@
 </div>
 <div class="{page.data.width ?? 'max-w-3xl'} m-auto my-2 px-2">
   <h1 class="text-3xl">{page.data.title}</h1>
-  <hr class="h-px mt-2 mb-4"/>
+  <hr class="h-px mt-2 mb-4 text-primary"/>
   {@render children()}
 </div>
 <footer class="footer sm:footer-horizontal footer-center bg-neutral text-neutral-content p-4">
