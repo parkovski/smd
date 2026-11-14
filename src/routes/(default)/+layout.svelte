@@ -1,6 +1,7 @@
 <script lang="ts">
   import '../layout.css';
   import favicon from '#lib/assets/favicon.svg';
+  import saguaroYellow from '#lib/assets/saguaro-circle-yellow.svg';
   import type { LayoutProps } from './$types';
   import { dev } from '$app/env';
   import { page } from '$app/state';
@@ -23,7 +24,7 @@
 
 <svelte:head>
   <link rel="icon" href={favicon}/>
-  <link rel="preload" href="/src/lib/assets/saguaro-circle-yellow.svg" as="image"/>
+  <link rel="preload" href={saguaroYellow} as="image"/>
   <title>{ page.data.title } - Shadow Mountain Digital</title>
 </svelte:head>
 
