@@ -1,10 +1,16 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import 'vanilla-calendar-pro/styles/index.css';
+  import { afterNavigate } from '$app/navigation';
+  import { type Calendar } from 'vanilla-calendar-pro';
 
-  onMount(async () => {
+  let calendar: Calendar | null;
+  async function createCalendar(always: boolean) {
     const { Calendar } = await import('vanilla-calendar-pro');
-    const calendar = new Calendar('#calendar', {
+
+    if (calendar && !always) {
+      return;
+    }
+    calendar = new Calendar('#calendar', {
       firstWeekday: 0,
       disableAllDates: true,
       enableDates: [
@@ -14,7 +20,18 @@
       ]
     });
     calendar.init();
-  });
+  }
+
+  function createAndDestroyCalendar(always: boolean) {
+    createCalendar(always);
+    return () => {
+      calendar?.destroy();
+      calendar = null;
+    };
+  }
+
+  onMount(() => createAndDestroyCalendar(true));
+  afterNavigate(() => createAndDestroyCalendar(false));
 </script>
 
 <style>
@@ -49,7 +66,7 @@
 
 <div id="calendar-outer-outer">
   <div id="calendar-outer">
-    <div id="calendar">
+    <div id="calendar" class="vc" style="border-width: 0px">
     </div>
     <div class="divider divider-horizontal divider-primary m-0"></div>
     <div id="time-picker">
