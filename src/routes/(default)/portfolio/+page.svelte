@@ -76,24 +76,30 @@
   <div class="embla__viewport">
     <div class="embla__container">
       <div class="embla__slide">
-        <picture>
-          <source srcset={tusongLight} media="(prefers-color-scheme: light)"/>
-          <source srcset={tusongDark} media="(prefers-color-scheme: dark)"/>
-          <img src={tusongLight} alt="Tusong Band Website"
-            class="rounded-xl border border-neutral"/>
-        </picture>
+        <a href="https://www.tusong.band" target="_blank">
+          <picture>
+            <source srcset={tusongLight} media="(prefers-color-scheme: light)"/>
+            <source srcset={tusongDark} media="(prefers-color-scheme: dark)"/>
+            <img src={tusongLight} alt="Tusong Band Website"
+              class="rounded-xl border border-neutral"/>
+          </picture>
+        </a>
       </div>
       <div class="embla__slide">
-        <img src={unaccessible} alt="Unaccessible Film Website"
-          class="rounded-xl border border-neutral">
+        <a href="https://www.unaccessiblefilm.com" target="_blank">
+          <img src={unaccessible} alt="Unaccessible Film Website"
+            class="rounded-xl border border-neutral">
+        </a>
       </div>
       <div class="embla__slide">
-        <picture>
-          <source srcset={parkovskiLight} media="(prefers-color-scheme: light)"/>
-          <source srcset={parkovskiDark} media="(prefers-color-scheme: dark)"/>
-          <img src={parkovskiLight} alt="Parker's Personal Website"
-            class="rounded-xl border border-neutral"/>
-        </picture>
+        <a href="https://www.parkovski.com" target="_blank">
+          <picture>
+            <source srcset={parkovskiLight} media="(prefers-color-scheme: light)"/>
+            <source srcset={parkovskiDark} media="(prefers-color-scheme: dark)"/>
+            <img src={parkovskiLight} alt="Parker's Personal Website"
+              class="rounded-xl border border-neutral"/>
+          </picture>
+        </a>
       </div>
     </div>
   </div>
