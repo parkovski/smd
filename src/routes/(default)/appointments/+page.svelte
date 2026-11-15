@@ -35,10 +35,10 @@
   let selectedDate: string | null = $state(null);
 
   let calendar: Calendar | null;
-  async function createCalendar(always: boolean) {
+  async function createCalendar() {
     const { Calendar } = await import('vanilla-calendar-pro');
 
-    if (calendar && !always) {
+    if (calendar) {
       return;
     }
     calendar = new Calendar('#calendar', {
@@ -46,7 +46,7 @@
       disableAllDates: true,
       enableDates: await getEnabledDates(),
       onClickDate(self) {
-        if (self.context.selectedDates[0]) {
+        if (self.context.selectedDates?.[0]) {
           selectedDate = getLocalDateString(new Date(self.context.selectedDates[0]));
         } else {
           selectedDate = null;
@@ -56,16 +56,15 @@
     calendar.init();
   }
 
-  function createAndDestroyCalendar(always: boolean) {
-    createCalendar(always);
+  function createAndDestroyCalendar() {
+    createCalendar();
     return () => {
       calendar?.destroy();
       calendar = null;
     };
   }
 
-  onMount(() => createAndDestroyCalendar(true));
-  afterNavigate(() => createAndDestroyCalendar(false));
+  onMount(() => createAndDestroyCalendar());
 </script>
 
 <style>
