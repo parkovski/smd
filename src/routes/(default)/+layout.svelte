@@ -61,11 +61,15 @@
     </ul>
   </div>
 </div>
-<div class="{page.data.width ?? 'max-w-3xl'} m-auto my-2 px-2">
-  <h1 class="text-3xl">{page.data.title}</h1>
-  <hr class="h-px mt-2 mb-4 text-primary"/>
+{#if page.data.customHeader}
   {@render children()}
-</div>
+{:else}
+  <div class="{page.data.width ?? 'max-w-3xl'} m-auto my-2 px-2">
+    <h1 class="text-3xl">{page.data.title}</h1>
+    <hr class="h-px mt-2 mb-4 text-primary"/>
+    {@render children()}
+  </div>
+{/if}
 <footer class="footer sm:footer-horizontal footer-center bg-neutral text-neutral-content p-4">
   <aside>
     <p>Copyright &copy; 2026 Shadow Mountain Digital</p>
