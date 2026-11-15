@@ -43,12 +43,12 @@
         <li><a class="link link-hover" href="/">Home</a></li>
         <li><a class="link link-hover" href="/portfolio">Portfolio</a></li>
         <li><a class="link link-hover" href="/appointments">Appointments</a></li>
-        <li><a class="link link-hover" href="/contact">Contact</a></li>
+        <li><a class="link link-hover" href="/about">About</a></li>
       </ul>
     </div>
     <div class="navbar-end">
       <ul class="menu menu-horizontal text-lg font-bold pr-0">
-        <li><a class="link link-hover" href="/about">About</a></li>
+        <li><a class="link link-hover" href="/contact">Contact</a></li>
       </ul>
     </div>
   </div>
@@ -57,7 +57,7 @@
       <li><a class="link link-hover" href="/">Home</a></li>
       <li><a class="link link-hover" href="/portfolio">Portfolio</a></li>
       <li><a class="link link-hover" href="/appointments">Appointments</a></li>
-      <li><a class="link link-hover" href="/contact">Contact</a></li>
+      <li><a class="link link-hover" href="/about">About</a></li>
     </ul>
   </div>
 </div>
