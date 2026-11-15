@@ -82,7 +82,7 @@
     padding: 1rem;
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 768px) {
     #calendar-outer {
       flex-direction: column;
     }
