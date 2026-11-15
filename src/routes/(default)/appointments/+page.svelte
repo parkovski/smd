@@ -17,10 +17,22 @@
     return format;
   }
 
-  const today = new Date();
-  let selectedDate: string = $state(getLocalDateString(
-    new Date(today.getTime() - today.getTimezoneOffset() * 60000)
-  ));
+  async function getEnabledDates() {
+    return Promise.resolve([
+      '2026-11-16:2026-11-20',
+      '2026-11-23:2026-11-27',
+      '2026-11-30:2026-12-04',
+    ]);
+  }
+
+  async function getTimeSlots(date: string | null) {
+    if (date == null) {
+      return Promise.resolve([]);
+    }
+    return Promise.resolve(['9:00 am', '11:00 am', '2:00 pm', '4:00 pm']);
+  }
+
+  let selectedDate: string | null = $state(null);
 
   let calendar: Calendar | null;
   async function createCalendar(always: boolean) {
@@ -32,13 +44,13 @@
     calendar = new Calendar('#calendar', {
       firstWeekday: 0,
       disableAllDates: true,
-      enableDates: [
-        '2026-11-16:2026-11-20',
-        '2026-11-23:2026-11-27',
-        '2026-11-30:2026-12-04',
-      ],
+      enableDates: await getEnabledDates(),
       onClickDate(self) {
-        selectedDate = getLocalDateString(new Date(self.context.selectedDates[0]));
+        if (self.context.selectedDates[0]) {
+          selectedDate = getLocalDateString(new Date(self.context.selectedDates[0]));
+        } else {
+          selectedDate = null;
+        }
       }
     });
     calendar.init();
@@ -78,6 +90,7 @@
 
     #time-picker {
       border-top: 2px solid var(--color-primary);
+      align-self: stretch;
     }
   }
 </style>
@@ -92,16 +105,21 @@
       <div id="calendar" class="vc" style="border-width: 0">
       </div>
       <div class="divider divider-horizontal divider-primary m-0"></div>
-      <div id="time-picker">
+      <div id="time-picker" style="flex: 1 0 auto">
         <h2 class="text-md font-bold">Available times</h2>
-        <h3 class="text-sm">{selectedDate}</h3>
+        <h3 class="text-sm">
+          {selectedDate == null ? 'No date selected' : selectedDate}
+        </h3>
         <div class="divider divider-primary m-0 p-px"></div>
-        <ol class="list" role="list">
-          <li class="my-1"><button class="btn w-full">9:00 am</button></li>
-          <li class="my-1"><button class="btn w-full">11:00 am</button></li>
-          <li class="my-1"><button class="btn w-full">2:00 pm</button></li>
-          <li class="my-1"><button class="btn w-full">4:00 pm</button></li>
-        </ol>
+        {#await getTimeSlots(selectedDate)}
+          Loading...
+        {:then slots}
+          <ol class="list" role="list">
+            {#each slots as slot}
+              <li class="my-1"><button class="btn w-full">{slot}</button></li>
+            {/each}
+          </ol>
+        {/await}
       </div>
     </div>
   </div>
