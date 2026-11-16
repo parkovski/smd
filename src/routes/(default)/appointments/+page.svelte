@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { afterNavigate } from '$app/navigation';
+  import { goto } from '$app/navigation';
   import { type Calendar } from 'vanilla-calendar-pro';
 
   const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -13,7 +13,8 @@
     const offset = date.getTimezoneOffset() * 60000;
     const newDate = new Date(date.getTime() + offset);
     const format =
-      `${weekdays[newDate.getDay()]} ${months[newDate.getMonth()]} ${newDate.getDate()}, ${newDate.getFullYear()}`;
+      `${weekdays[newDate.getDay()]} ${months[newDate.getMonth()]} ` +
+      `${newDate.getDate()}, ${newDate.getFullYear()}`;
     return format;
   }
 
@@ -33,6 +34,7 @@
   }
 
   let selectedDate: string | null = $state(null);
+  let isoDate: string | null = null;
 
   let calendar: Calendar | null;
   async function createCalendar() {
@@ -48,8 +50,10 @@
       onClickDate(self) {
         if (self.context.selectedDates?.[0]) {
           selectedDate = getLocalDateString(new Date(self.context.selectedDates[0]));
+          isoDate = self.context.selectedDates[0];
         } else {
           selectedDate = null;
+          isoDate = null;
         }
       }
     });
@@ -64,7 +68,26 @@
     };
   }
 
-  onMount(() => createAndDestroyCalendar());
+  onMount(createAndDestroyCalendar);
+
+  function bookApt(timeslot: string) {
+    const match = /(\d+):(\d+) ([ap]m)/.exec(timeslot);
+    if (match === null) {
+      return;
+    }
+    let hr = match[1];
+    const min = match[2];
+    const ampm = match[3];
+    if (hr === '12') {
+      if (ampm === 'am') {
+        hr = '00';
+      }
+    } else if (ampm === 'pm') {
+      hr = '' + (Number(hr) + 12);
+    }
+
+    goto('/appointments/book?d=' + isoDate + '&t=' + hr + ':' + min);
+  }
 </script>
 
 <style>
@@ -74,12 +97,16 @@
     align-items: flex-start;
     justify-content: center;
     border: 2px solid var(--color-primary);
-    border-radius: 8px;
+    border-radius: 1rem;
     margin: 0 auto;
   }
 
   #time-picker {
     padding: 1rem;
+  }
+
+  #time-picker > h2, #time-picker > h3 {
+    text-align: center;
   }
 
   @media (max-width: 768px) {
@@ -115,7 +142,9 @@
         {:then slots}
           <ol class="list" role="list">
             {#each slots as slot}
-              <li class="my-1"><button class="btn w-full">{slot}</button></li>
+              <li class="my-1">
+                <button class="btn w-full" onclick={() => bookApt(slot)}>{slot}</button>
+              </li>
             {/each}
           </ol>
         {/await}
