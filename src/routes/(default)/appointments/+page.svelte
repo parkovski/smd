@@ -18,23 +18,30 @@
     return format;
   }
 
-  async function getEnabledDates() {
-    return Promise.resolve([
-      '2026-11-16:2026-11-20',
-      '2026-11-23:2026-11-27',
-      '2026-11-30:2026-12-04',
-    ]);
+  async function getEnabledDates(): Promise<string[]> {
+    const ranges: (string | [string, string])[] =
+      await (
+        await fetch('https://api.shadowmtndigital.com/appointment/ranges')
+      ).json();
+    return ranges.map(r => {
+      if (Array.isArray(r)) {
+        return `${r[0]}:${r[1]}`;
+      }
+      return r;
+    });
   }
 
   async function getTimeSlots(date: string | null) {
     if (date == null) {
       return Promise.resolve([]);
     }
-    return Promise.resolve(['9:00 am', '11:00 am', '2:00 pm', '4:00 pm']);
+    return await (
+      await fetch(`https://api.shadowmtndigital.com/appointment/${date}`)
+    ).json();
   }
 
   let selectedDate: string | null = $state(null);
-  let isoDate: string | null = null;
+  let isoDate: string | null = $state(null);
 
   let calendar: Calendar | null;
   async function createCalendar() {
@@ -70,23 +77,49 @@
 
   onMount(createAndDestroyCalendar);
 
-  function bookApt(timeslot: string) {
-    const match = /(\d+):(\d+) ([ap]m)/.exec(timeslot);
+  function toAmPm(time: string) {
+    const match = /(\d+):(\d+)/.exec(time);
     if (match === null) {
-      return;
-    }
-    let hr = match[1];
-    const min = match[2];
-    const ampm = match[3];
-    if (hr === '12') {
-      if (ampm === 'am') {
-        hr = '00';
-      }
-    } else if (ampm === 'pm') {
-      hr = '' + (Number(hr) + 12);
+      return time;
     }
 
-    goto('/appointments/book?d=' + isoDate + '&t=' + hr + ':' + min);
+    const hr = parseInt(match[1]);
+    const min = parseInt(match[2]);
+    let ampm: string;
+    let r: string;
+
+    if (hr < 12) {
+      ampm = 'am';
+      if (hr === 0) {
+        r = '12';
+      } else {
+        r = '' + hr;
+      }
+    } else {
+      ampm = 'pm';
+      if (hr == 12) {
+        r = '12';
+      } else {
+        r = '' + (hr - 12);
+      }
+    }
+
+    r += ':';
+    if (min === 0) {
+      r += '00';
+    } else if (min < 10) {
+      r += '0' + min;
+    } else {
+      r += min;
+    }
+
+    r += ' ' + ampm;
+
+    return r;
+  }
+
+  function bookApt(timeslot: string) {
+    goto('/appointments/book?d=' + isoDate + '&t=' + timeslot);
   }
 </script>
 
@@ -137,13 +170,13 @@
           {selectedDate == null ? 'No date selected' : selectedDate}
         </h3>
         <div class="divider divider-primary m-0 p-px"></div>
-        {#await getTimeSlots(selectedDate)}
-          Loading...
+        {#await getTimeSlots(isoDate)}
+          <p class="text-center">Loading...</p>
         {:then slots}
           <ol class="list" role="list">
             {#each slots as slot}
               <li class="my-1">
-                <button class="btn w-full" onclick={() => bookApt(slot)}>{slot}</button>
+                <button class="btn w-full" onclick={() => bookApt(slot)}>{toAmPm(slot)}</button>
               </li>
             {/each}
           </ol>

@@ -1,6 +1,15 @@
 <script lang="ts">
   import { browser } from '$app/env';
 
+  // TODO: Send to booking status page.
+  const redirect = (() => {
+    if (browser) {
+      return encodeURIComponent(window.location.origin + '/appointments/status');
+    } else {
+      return '/';
+    }
+  })();
+
   const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   const months = [
     'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
@@ -16,11 +25,8 @@
   }
 
   let emailError = $state(true);
-  function validateEmail(email?: string) {
-    console.log('validateEmail');
-    if (!email) {
-      email = document.getElementById('email').value;
-    }
+  function validateEmail() {
+    const email = (document.getElementById('email') as HTMLInputElement).value;
     emailError = !/[a-zA-Z0-9_.-]+@[a-zA-Z0-9_-]+(?:\.[a-zA-Z0-9_-])+/.test(email);
   }
 
@@ -56,13 +62,12 @@
     } else {
       ampm = 'am';
     }
-    time = hr + ':' + String(min).padStart(2, 0) +
-      ' ' + ampm;
+    time = hr + ':' + String(min).padStart(2, '0') + ' ' + ampm;
     return time;
   }
 
-  let dateError = $state(null);
-  let timeError = $state(null);
+  let dateError: string | null = $state(null);
+  let timeError: string | null = $state(null);
 
   // These are essentially constants, they just have to be set in the
   // 'if (browser)' section, so just shut up svelte here.
@@ -100,7 +105,9 @@
       <hr class="h-px my-2 text-primary"/>
     </div>
     <div id="form-outer">
-      <form action="/appointments/book" method="post">
+      <form action="https://api.shadowmtndigital.com/appointment?r={redirect}"
+        enctype="application/x-www-form-urlencoded"
+        method="post">
         <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
           <legend class="fieldset-legend">Book an Appointment</legend>
           {#if dateError}
@@ -118,7 +125,7 @@
           <label class="label" for="email">Email</label>
           <input type="text" class="input" name="email" id="email"
             placeholder="Enter your email here"
-            oninput={() => validateEmail()}/>
+            oninput={validateEmail}/>
           <label class="label" for="message">Message</label>
           <textarea class="textarea" name="message" id="message"
             placeholder="What is the purpose of your appointment?"
