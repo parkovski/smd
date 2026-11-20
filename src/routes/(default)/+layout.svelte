@@ -11,13 +11,13 @@
 
 <style>
   #logo {
-    background: url(/src/lib/assets/saguaro-circle.svg);
+    background: url(/src/lib/assets/saguaro-circle-yellow.svg);
     background-size: 64px auto;
     height: 64px;
     width: 64px;
   }
   #logo:hover {
-    background: url(/src/lib/assets/saguaro-circle-yellow.svg);
+    background: url(/src/lib/assets/saguaro-circle.svg);
     background-size: 64px auto;
   }
 </style>
