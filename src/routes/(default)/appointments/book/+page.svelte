@@ -12,7 +12,14 @@
     }
   })();
 
+  let nameError = $state(true);
   let emailError = $state(true);
+
+  function validateName() {
+    const name = (document.getElementById('name') as HTMLInputElement).value;
+    nameError = name.length === 0;
+  }
+
   function validateEmail() {
     const email = (document.getElementById('email') as HTMLInputElement).value;
     emailError = !/[a-zA-Z0-9_.-]+@[a-zA-Z0-9_-]+(?:\.[a-zA-Z0-9_-])+/.test(email);
@@ -74,6 +81,10 @@
           {/if}
           <input type="hidden" name="date" value={date}/>
           <input type="hidden" name="time" value={time}/>
+          <label class="label" for="name">Name</label>
+          <input type="text" class="input" name="name" id="name"
+            placeholder="Enter your name here"
+            oninput={validateName}/>
           <label class="label" for="email">Email</label>
           <input type="text" class="input" name="email" id="email"
             placeholder="Enter your email here"
@@ -87,6 +98,10 @@
               <p class="text-error">
                 Please go back and choose a valid date and time.
               </p>
+            </div>
+          {:else if nameError}
+            <div class="mt-2">
+              <p class="text-error">Please enter your name.</p>
             </div>
           {:else if emailError}
             <div class="mt-2">
