@@ -88,7 +88,7 @@
     text-align: center;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 32rem) {
     #calendar-outer {
       flex-direction: column;
     }
@@ -100,11 +100,21 @@
   }
 </style>
 
-<div class="flex flex-row justify-center mb-4">
+<div class="flex flex-row justify-center mb-4 max-w-lg m-auto">
   <div class="flex flex-col">
-    <div class="my-2">
+    <div class="mt-2">
       <h1 class="text-3xl">Appointments</h1>
       <hr class="h-px my-2 text-primary"/>
+    </div>
+    <div class="mb-4">
+      <p>
+        * If you want to meet at a time not listed, pick the time closest to
+        your desired time and clarify in your message.
+      </p>
+      <p class="mt-2">
+        * The highlighted day is today and not necessarily available for
+        meetings. Please choose a different day.
+      </p>
     </div>
     <div id="calendar-outer">
       <div id="calendar" class="vc" style="border-width: 0">
