@@ -39,19 +39,19 @@
        id="linearGradient1"
        inkscape:collect="always">
       <stop
-         style="stop-color:#ffff00;stop-opacity:0.84948456;"
+         style="stop-color:#c8ff00;stop-opacity:0.84948456;"
          offset="0"
          id="stop1" />
       <stop
-         style="stop-color:#ffff5a;stop-opacity:0.75463915;"
+         style="stop-color:#beff5a;stop-opacity:0.75463915;"
          offset="0.55345911"
          id="stop4" />
       <stop
-         style="stop-color:#ffffc8;stop-opacity:0.67216498;"
+         style="stop-color:#c8ffc8;stop-opacity:0.67216498;"
          offset="0.74685538"
          id="stop3" />
       <stop
-         style="stop-color:#ffff00;stop-opacity:0.67216498;"
+         style="stop-color:#64c31e;stop-opacity:0.67216498;"
          offset="1"
          id="stop2" />
     </linearGradient>

@@ -1,7 +1,7 @@
 <script lang="ts">
   import '../layout.css';
   import favicon from '#lib/assets/favicon.svg';
-  import pianoRoad from '#lib/assets/piano-road-sm.webp';
+  import background from '#lib/assets/background.webp';
 </script>
 
 <svelte:head>
@@ -30,12 +30,12 @@
 
 <div
   class="hero min-h-screen"
-  style="background-image: url({pianoRoad})"
+  style="background-image: url({background})"
 >
   <div class="hero-content text-center">
-    <div id="title-text" class="max-w-md relative -top-40 2xl:-top-50 header-text text-gray-200">
-      <h1 class="text-4xl font-bold pb-2" style="text-shadow: 2px 2px 2px black">Shadow Mountain Digital</h1>
-      <h2 class="text-2xl" style="text-shadow: 2px 2px 2px black">Creative Technology Solutions</h2>
+    <div id="title-text" class="max-w-2xl relative -top-40 2xl:-top-50 header-text text-gray-200">
+      <h1 class="text-5xl font-bold pb-2 text-emerald-900" style="text-shadow: 2px 2px 2px var(--color-lime-700)">Shadow Mountain Digital</h1>
+      <h2 class="text-3xl text-gray-200" style="text-shadow: 2px 2px 1px var(--color-lime-700)">Creative Web and App Design</h2>
     </div>
   </div>
 </div>
