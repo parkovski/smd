@@ -30,6 +30,7 @@
   let isoDate: string | null = $state(null);
 
   let calendar: Calendar | null;
+  let calendarPromise: Promise<void> | null = $state(null);
   async function createCalendar() {
     const { Calendar } = await import('vanilla-calendar-pro');
 
@@ -54,7 +55,7 @@
   }
 
   function createAndDestroyCalendar() {
-    createCalendar();
+    calendarPromise = createCalendar();
     return () => {
       calendar?.destroy();
       calendar = null;
@@ -107,6 +108,9 @@
     </div>
     <div id="calendar-outer">
       <div id="calendar" class="vc" style="border-width: 0">
+        {#await calendarPromise}
+          <p class="text-center">Loading calendar...</p>
+        {/await}
       </div>
       <div class="divider divider-horizontal divider-primary m-0"></div>
       <div id="time-picker" style="flex: 1 0 auto">
