@@ -1,11 +1,13 @@
 <script lang="ts">
   import '../layout.css';
   import favicon from '#lib/assets/favicon.svg';
+  import saguaro from '#lib/assets/saguaro-circle.svg';
   import background from '#lib/assets/background.webp';
 </script>
 
 <svelte:head>
   <link rel="icon" href={favicon}/>
+  <link rel="preload" href={saguaro} as="image"/>
   <title>Shadow Mountain Digital</title>
 </svelte:head>
 
