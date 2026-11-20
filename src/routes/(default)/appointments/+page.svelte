@@ -2,21 +2,7 @@
   import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
   import { type Calendar } from 'vanilla-calendar-pro';
-
-  const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  const months = [
-    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-  ];
-
-  function getLocalDateString(date: Date) {
-    const offset = date.getTimezoneOffset() * 60000;
-    const newDate = new Date(date.getTime() + offset);
-    const format =
-      `${weekdays[newDate.getDay()]} ${months[newDate.getMonth()]} ` +
-      `${newDate.getDate()}, ${newDate.getFullYear()}`;
-    return format;
-  }
+  import { getLocalDateString, timeToAmPmTime } from '#lib/datetime.ts';
 
   async function getEnabledDates(): Promise<string[]> {
     const ranges: (string | [string, string])[] =
@@ -77,47 +63,6 @@
 
   onMount(createAndDestroyCalendar);
 
-  function toAmPm(time: string) {
-    const match = /(\d+):(\d+)/.exec(time);
-    if (match === null) {
-      return time;
-    }
-
-    const hr = parseInt(match[1]);
-    const min = parseInt(match[2]);
-    let ampm: string;
-    let r: string;
-
-    if (hr < 12) {
-      ampm = 'am';
-      if (hr === 0) {
-        r = '12';
-      } else {
-        r = '' + hr;
-      }
-    } else {
-      ampm = 'pm';
-      if (hr == 12) {
-        r = '12';
-      } else {
-        r = '' + (hr - 12);
-      }
-    }
-
-    r += ':';
-    if (min === 0) {
-      r += '00';
-    } else if (min < 10) {
-      r += '0' + min;
-    } else {
-      r += min;
-    }
-
-    r += ' ' + ampm;
-
-    return r;
-  }
-
   function bookApt(timeslot: string) {
     goto('/appointments/book?d=' + isoDate + '&t=' + timeslot);
   }
@@ -176,7 +121,7 @@
           <ol class="list" role="list">
             {#each slots as slot}
               <li class="my-1">
-                <button class="btn w-full" onclick={() => bookApt(slot)}>{toAmPm(slot)}</button>
+                <button class="btn w-full" onclick={() => bookApt(slot)}>{timeToAmPmTime(slot)}</button>
               </li>
             {/each}
           </ol>
