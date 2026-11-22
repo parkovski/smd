@@ -22,12 +22,6 @@
     background: url(/src/lib/assets/saguaro-circle.svg);
     background-size: 64px auto;
   }
-
-  @media (max-height: 550px) {
-    #title-text {
-      top: -7.5rem !important;
-    }
-  }
 </style>
 
 <div
@@ -35,9 +29,9 @@
   style="background-image: url({background})"
 >
   <div class="hero-content text-center">
-    <div id="title-text" class="max-w-2xl relative -top-40 2xl:-top-50 header-text text-gray-200">
+    <div id="title-text" class="max-w-2xl absolute top-15 md:top-30 header-text text-gray-200">
       <h1 class="text-5xl font-bold pb-2 text-emerald-900" style="text-shadow: 2px 2px 2px var(--color-lime-700)">Shadow Mountain Digital</h1>
-      <h2 class="text-3xl text-gray-200" style="text-shadow: 2px 2px 1px var(--color-lime-700)">Creative Web and App Design</h2>
+      <h2 class="text-2xl text-gray-200" style="text-shadow: 2px 2px 1px var(--color-lime-700)">Creative Web and App Design</h2>
     </div>
   </div>
 </div>
