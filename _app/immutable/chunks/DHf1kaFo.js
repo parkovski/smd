@@ -1,0 +1,1 @@
+var e=new URL(`../assets/favicon.Chc8apGQ.svg`,import.meta.url).href,t=new URL(`../assets/saguaro-circle.DLv3fE38.svg`,import.meta.url).href;export{e as n,t};
